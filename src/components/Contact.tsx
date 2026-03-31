@@ -60,7 +60,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="font-semibold">Call or Text</div>
-                  <a href="tel:+14795550000" className="text-brand-lime hover:underline">(479) 555-0000</a>
+                  <a href="tel:+18173002215" className="text-brand-lime hover:underline">(817) 300-2215</a>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -69,7 +69,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="font-semibold">Email Us</div>
-                  <a href="mailto:info@brysonslawn.com" className="text-brand-lime hover:underline">info@brysonslawn.com</a>
+                  <a href="mailto:brysonsexton2334@gmail.com" className="text-brand-lime hover:underline">brysonsexton2334@gmail.com</a>
                 </div>
               </div>
               <div className="flex items-center gap-4">

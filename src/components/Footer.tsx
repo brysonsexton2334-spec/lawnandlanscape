@@ -30,8 +30,8 @@ export default function Footer() {
           <div>
             <h4 className="font-display font-bold mb-4 text-brand-lime">Contact</h4>
             <ul className="space-y-3 text-white/60 text-sm">
-              <li><a href="tel:+14795550000" className="hover:text-white transition-colors">📞 (479) 555-0000</a></li>
-              <li><a href="mailto:info@brysonslawn.com" className="hover:text-white transition-colors">📧 info@brysonslawn.com</a></li>
+              <li><a href="tel:+18173002215" className="hover:text-white transition-colors">📞 (817) 300-2215</a></li>
+              <li><a href="mailto:brysonsexton2334@gmail.com" className="hover:text-white transition-colors">📧 brysonsexton2334@gmail.com</a></li>
               <li>📍 Northwest Arkansas</li>
             </ul>
           </div>
