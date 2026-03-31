@@ -62,7 +62,7 @@ function BeforeAfterSlider({ before, after }: { before: string; after: string })
 const pairs = [
   { before: '/images/before-overgrown.jpg', after: '/images/IMG_1590.jpg' },
   { before: '/images/after-landscaping.jpg', after: '/images/after-mulch.jpg' },
-  { before: '/images/gallery-hedges.jpg', after: '/images/gallery-shrubs.jpg' },
+  { before: '/images/gallery-shrubs.jpg', after: '/images/gallery-hedges.jpg' },
 ]
 
 export default function Gallery() {

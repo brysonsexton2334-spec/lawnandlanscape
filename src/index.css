@@ -31,18 +31,18 @@ html {
 }
 
 /* Staggered children */
-.stagger > * {
+.reveal .stagger > * {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.stagger.visible > *:nth-child(1) { transition-delay: 0.05s; }
-.stagger.visible > *:nth-child(2) { transition-delay: 0.1s; }
-.stagger.visible > *:nth-child(3) { transition-delay: 0.15s; }
-.stagger.visible > *:nth-child(4) { transition-delay: 0.2s; }
-.stagger.visible > *:nth-child(5) { transition-delay: 0.25s; }
-.stagger.visible > *:nth-child(6) { transition-delay: 0.3s; }
-.stagger.visible > * {
+.reveal.visible .stagger > *:nth-child(1) { transition-delay: 0.05s; }
+.reveal.visible .stagger > *:nth-child(2) { transition-delay: 0.1s; }
+.reveal.visible .stagger > *:nth-child(3) { transition-delay: 0.15s; }
+.reveal.visible .stagger > *:nth-child(4) { transition-delay: 0.2s; }
+.reveal.visible .stagger > *:nth-child(5) { transition-delay: 0.25s; }
+.reveal.visible .stagger > *:nth-child(6) { transition-delay: 0.3s; }
+.reveal.visible .stagger > * {
   opacity: 1;
   transform: translateY(0);
 }
