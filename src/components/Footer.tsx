@@ -1,4 +1,12 @@
-const serviceAreas = ['Bentonville', 'Rogers', 'Fayetteville', 'Springdale', 'Lowell']
+import { Link } from 'react-router-dom'
+
+const serviceAreas = [
+  { name: 'Bentonville', slug: 'bentonville' },
+  { name: 'Rogers', slug: 'rogers' },
+  { name: 'Fayetteville', slug: 'fayetteville' },
+  { name: 'Springdale', slug: 'springdale' },
+  { name: 'Lowell', slug: 'lowell' },
+]
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -48,10 +56,10 @@ export default function Footer() {
         <div className="border-t border-white/[0.06] pt-8 mb-6">
           <div className="flex flex-wrap gap-x-1.5 gap-y-1 text-[11px] text-white/25 justify-center leading-relaxed">
             {serviceAreas.map((area, i) => (
-              <span key={area}>
-                <a href="#contact" className="hover:text-white/50 transition-colors">
-                  Reliable Lawn Care &amp; Landscaping in {area}
-                </a>
+              <span key={area.slug}>
+                <Link to={`/${area.slug}`} className="hover:text-white/50 transition-colors">
+                  Reliable Lawn Care &amp; Landscaping in {area.name}
+                </Link>
                 {i < serviceAreas.length - 1 && <span className="mx-1">|</span>}
               </span>
             ))}

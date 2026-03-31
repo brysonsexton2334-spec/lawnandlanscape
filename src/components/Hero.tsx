@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export default function Hero() {
+export default function Hero({ location }: { location?: string }) {
   const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function Hero() {
           </span>
           <br />
           <span className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold text-white/90">
-            in Northwest Arkansas
+            in {location || 'Northwest Arkansas'}
           </span>
         </h1>
 
