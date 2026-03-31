@@ -11,10 +11,10 @@ export default function Navbar() {
   }, [])
 
   const links = [
-    { label: 'Services', href: '#services' },
     { label: 'About', href: '#about' },
+    { label: 'Services', href: '#services' },
     { label: 'Gallery', href: '#gallery' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Reviews', href: '#reviews' },
   ]
 
   return (
@@ -27,22 +27,21 @@ export default function Navbar() {
         <a href="#" className="flex items-center gap-2">
           <span className="text-2xl">🌿</span>
           <span
-            className={`font-display font-bold text-xl leading-tight ${
+            className={`font-display font-bold text-lg leading-tight ${
               scrolled ? 'text-brand-dark' : 'text-white'
             }`}
           >
-            Bryson's Lawn<br className="hidden sm:block" />
-            <span className="text-brand-lime"> & Landscape</span>
+            Bryson's Lawn<span className="text-brand-lime"> & Landscape</span>
           </span>
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-7">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className={`font-medium transition-colors hover:text-brand-lime ${
+              className={`font-medium text-sm transition-colors hover:text-brand-lime ${
                 scrolled ? 'text-brand-dark' : 'text-white'
               }`}
             >
@@ -51,9 +50,9 @@ export default function Navbar() {
           ))}
           <a
             href="#contact"
-            className="bg-brand-green text-white px-5 py-2 rounded-full font-semibold hover:bg-brand-lime transition-colors"
+            className="bg-brand-green text-white px-5 py-2 rounded-full font-semibold text-sm hover:bg-brand-lime transition-colors"
           >
-            Free Quote
+            Get Quote
           </a>
         </nav>
 
@@ -73,7 +72,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {menuOpen && (
         <div className="md:hidden bg-white border-t px-6 py-4 flex flex-col gap-4">
           {links.map((l) => (
@@ -91,7 +89,7 @@ export default function Navbar() {
             className="bg-brand-green text-white px-5 py-2 rounded-full font-semibold text-center hover:bg-brand-lime transition-colors"
             onClick={() => setMenuOpen(false)}
           >
-            Free Quote
+            Get Quote
           </a>
         </div>
       )}
