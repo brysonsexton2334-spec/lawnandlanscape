@@ -55,11 +55,10 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 sm:py-28 bg-white">
+    <section id="contact" className="py-20 sm:py-24 bg-white">
       <div ref={ref} className="reveal max-w-6xl mx-auto px-5 sm:px-6">
-        <div className="text-center mb-14">
-          <span className="inline-block text-brand-lime font-semibold text-xs uppercase tracking-[0.2em] mb-3 bg-brand-lime/10 px-3 py-1 rounded-full">Contact</span>
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-brand-dark mb-4">
+        <div className="text-center mb-12">
+          <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-brand-dark mb-3">
             Get Your Free Estimate
           </h2>
           <p className="text-gray-400 text-base sm:text-lg max-w-lg mx-auto">
@@ -92,7 +91,6 @@ export default function Contact() {
               ))}
             </div>
 
-            {/* Quick response box */}
             <div className="bg-brand-dark rounded-2xl p-5 text-white">
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-lg">⚡</span>
@@ -112,7 +110,7 @@ export default function Contact() {
 
           {/* Right: form */}
           <form onSubmit={handleSubmit(onSubmit)} className="md:col-span-3 bg-brand-light rounded-3xl p-6 sm:p-8 space-y-4">
-            <h3 className="font-display font-bold text-lg text-brand-dark mb-2">Request Free Estimate</h3>
+            <h3 className="font-display font-bold text-lg text-brand-dark mb-1">Request Free Estimate</h3>
 
             <Input label="Name *" placeholder="Your full name" error={errors.name?.message} {...register('name')} />
 

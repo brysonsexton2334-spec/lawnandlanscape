@@ -39,11 +39,10 @@ export default function Reviews() {
   const ref = useReveal()
 
   return (
-    <section id="reviews" className="py-20 sm:py-28 bg-brand-light">
+    <section id="reviews" className="py-20 sm:py-24 bg-brand-light">
       <div ref={ref} className="reveal max-w-6xl mx-auto px-5 sm:px-6">
-        <div className="text-center mb-14">
-          <span className="inline-block text-brand-lime font-semibold text-xs uppercase tracking-[0.2em] mb-3 bg-brand-lime/10 px-3 py-1 rounded-full">Reviews</span>
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-brand-dark mb-4">
+        <div className="text-center mb-12">
+          <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-brand-dark mb-3">
             What Customers Say
           </h2>
           <p className="text-gray-400 text-base sm:text-lg max-w-lg mx-auto">
@@ -67,11 +66,6 @@ export default function Reviews() {
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="text-center mt-10 flex items-center justify-center gap-2 text-gray-400 text-sm">
-          <Stars />
-          <span className="ml-2 font-medium">5.0 average · 100+ satisfied customers</span>
         </div>
       </div>
     </section>

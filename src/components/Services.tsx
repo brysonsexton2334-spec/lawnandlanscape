@@ -47,11 +47,10 @@ export default function Services() {
 
   return (
     <>
-      <section id="services" className="py-20 sm:py-28 bg-brand-light">
+      <section id="services" className="py-20 sm:py-24 bg-brand-light">
         <div ref={servicesRef} className="reveal max-w-6xl mx-auto px-5 sm:px-6">
-          <div className="text-center mb-14">
-            <span className="inline-block text-brand-lime font-semibold text-xs uppercase tracking-[0.2em] mb-3 bg-brand-lime/10 px-3 py-1 rounded-full">What We Do</span>
-            <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-brand-dark mb-4">
+          <div className="text-center mb-12">
+            <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-brand-dark mb-3">
               Our Services
             </h2>
             <p className="text-gray-400 text-base sm:text-lg max-w-lg mx-auto">
@@ -79,15 +78,14 @@ export default function Services() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 sm:py-28 bg-brand-dark text-white overflow-hidden">
+      <section className="py-20 sm:py-24 bg-brand-dark text-white">
         <div ref={whyRef} className="reveal max-w-6xl mx-auto px-5 sm:px-6">
-          <div className="text-center mb-14">
-            <span className="inline-block text-brand-lime font-semibold text-xs uppercase tracking-[0.2em] mb-3 bg-brand-lime/10 px-3 py-1 rounded-full">Why Choose Us</span>
-            <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl mb-4">
-              Dedicated to Delivering<br className="hidden sm:block" /> Exceptional Lawn Care
+          <div className="text-center mb-12">
+            <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl mb-3">
+              Why Choose Us
             </h2>
             <p className="text-white/50 text-base sm:text-lg max-w-lg mx-auto">
-              With a personal touch you won't find anywhere else
+              Dedicated to delivering exceptional lawn care with a personal touch
             </p>
           </div>
 
