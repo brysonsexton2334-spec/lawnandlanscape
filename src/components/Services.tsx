@@ -1,3 +1,5 @@
+import { useReveal } from '../hooks/useReveal'
+
 const services = [
   {
     icon: '🌿',
@@ -32,7 +34,7 @@ const services = [
 ]
 
 const whyUs = [
-  { icon: '🏠', title: 'Student-Owned Local Business', desc: 'Supporting local and student entrepreneurship' },
+  { icon: '🎓', title: 'Student-Owned Local Business', desc: 'Supporting local and student entrepreneurship' },
   { icon: '⭐', title: '5+ Years Experience', desc: 'Proven track record of quality service' },
   { icon: '✅', title: 'Reliable & Detail-Oriented', desc: 'Consistent quality you can count on' },
   { icon: '💰', title: 'Fair Pricing', desc: 'Honest quotes with no hidden fees' },
@@ -40,31 +42,34 @@ const whyUs = [
 ]
 
 export default function Services() {
+  const servicesRef = useReveal()
+  const whyRef = useReveal()
+
   return (
     <>
-      <section id="services" className="py-24 bg-brand-light">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-brand-lime font-semibold text-sm uppercase tracking-widest">What We Do</span>
-            <h2 className="font-display font-bold text-4xl md:text-5xl text-brand-dark mt-3 mb-4">
+      <section id="services" className="py-20 sm:py-28 bg-brand-light">
+        <div ref={servicesRef} className="reveal max-w-6xl mx-auto px-5 sm:px-6">
+          <div className="text-center mb-14">
+            <span className="inline-block text-brand-lime font-semibold text-xs uppercase tracking-[0.2em] mb-3 bg-brand-lime/10 px-3 py-1 rounded-full">What We Do</span>
+            <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-brand-dark mb-4">
               Our Services
             </h2>
-            <p className="text-gray-500 text-lg max-w-xl mx-auto">
+            <p className="text-gray-400 text-base sm:text-lg max-w-lg mx-auto">
               Comprehensive lawn care and landscaping solutions for every season
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="stagger grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {services.map((s) => (
               <div
                 key={s.title}
-                className="group bg-white rounded-2xl p-8 hover:bg-brand-green hover:text-white transition-all duration-300 cursor-default shadow-sm"
+                className="group bg-white rounded-2xl p-6 sm:p-7 hover:bg-brand-green transition-all duration-400 cursor-default shadow-sm hover:shadow-xl hover:shadow-brand-green/15 hover:-translate-y-1"
               >
-                <div className="text-4xl mb-4">{s.icon}</div>
-                <h3 className="font-display font-bold text-xl text-brand-dark group-hover:text-white mb-3 transition-colors">
+                <div className="w-12 h-12 bg-brand-light group-hover:bg-white/15 rounded-xl flex items-center justify-center text-2xl mb-4 transition-colors">{s.icon}</div>
+                <h3 className="font-display font-bold text-lg text-brand-dark group-hover:text-white mb-2 transition-colors">
                   {s.title}
                 </h3>
-                <p className="text-gray-500 group-hover:text-white/80 leading-relaxed transition-colors text-sm">
+                <p className="text-gray-400 group-hover:text-white/75 leading-relaxed text-sm transition-colors">
                   {s.description}
                 </p>
               </div>
@@ -74,21 +79,24 @@ export default function Services() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-24 bg-brand-dark text-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-brand-lime font-semibold text-sm uppercase tracking-widest">Why Choose Us</span>
-            <h2 className="font-display font-bold text-4xl md:text-5xl mt-3">
-              Dedicated to Delivering<br />Exceptional Lawn Care
+      <section className="py-20 sm:py-28 bg-brand-dark text-white overflow-hidden">
+        <div ref={whyRef} className="reveal max-w-6xl mx-auto px-5 sm:px-6">
+          <div className="text-center mb-14">
+            <span className="inline-block text-brand-lime font-semibold text-xs uppercase tracking-[0.2em] mb-3 bg-brand-lime/10 px-3 py-1 rounded-full">Why Choose Us</span>
+            <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl mb-4">
+              Dedicated to Delivering<br className="hidden sm:block" /> Exceptional Lawn Care
             </h2>
+            <p className="text-white/50 text-base sm:text-lg max-w-lg mx-auto">
+              With a personal touch you won't find anywhere else
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="stagger grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
             {whyUs.map((w) => (
-              <div key={w.title} className="text-center p-6 rounded-2xl bg-white/5 border border-white/10">
-                <div className="text-3xl mb-3">{w.icon}</div>
-                <h3 className="font-display font-bold text-sm mb-2 leading-snug">{w.title}</h3>
-                <p className="text-white/60 text-xs leading-relaxed">{w.desc}</p>
+              <div key={w.title} className="text-center p-5 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/[0.06] hover:bg-white/[0.08] hover:border-brand-lime/20 transition-all duration-300">
+                <div className="text-2xl sm:text-3xl mb-3">{w.icon}</div>
+                <h3 className="font-display font-bold text-xs sm:text-sm mb-1.5 leading-snug">{w.title}</h3>
+                <p className="text-white/40 text-[11px] sm:text-xs leading-relaxed">{w.desc}</p>
               </div>
             ))}
           </div>

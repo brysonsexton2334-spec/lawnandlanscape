@@ -6,9 +6,15 @@ export default function Navbar() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', onScroll)
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [menuOpen])
 
   const links = [
     { label: 'About', href: '#about' },
@@ -19,30 +25,36 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? 'bg-white/95 backdrop-blur-md shadow-lg shadow-black/5 py-3'
+          : 'bg-transparent py-5'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2">
-          <span className="text-2xl">🌿</span>
+      <div className="max-w-6xl mx-auto px-5 sm:px-6 flex items-center justify-between">
+        <a href="#" className="flex items-center gap-2 group">
+          <div className={`w-9 h-9 rounded-lg flex items-center justify-center text-lg transition-colors ${
+            scrolled ? 'bg-brand-green/10' : 'bg-white/15'
+          }`}>
+            🌿
+          </div>
           <span
-            className={`font-display font-bold text-lg leading-tight ${
+            className={`font-display font-bold text-[15px] sm:text-lg leading-none transition-colors ${
               scrolled ? 'text-brand-dark' : 'text-white'
             }`}
           >
-            Bryson's Lawn<span className="text-brand-lime"> & Landscape</span>
+            Bryson's Lawn<span className="text-brand-lime"> &amp; Landscape</span>
           </span>
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-7">
+        <nav className="hidden lg:flex items-center gap-7">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className={`font-medium text-sm transition-colors hover:text-brand-lime ${
-                scrolled ? 'text-brand-dark' : 'text-white'
+              className={`relative font-medium text-sm transition-colors after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-brand-lime after:transition-all after:duration-300 hover:after:w-full ${
+                scrolled ? 'text-gray-600 hover:text-brand-dark' : 'text-white/85 hover:text-white'
               }`}
             >
               {l.label}
@@ -50,7 +62,7 @@ export default function Navbar() {
           ))}
           <a
             href="#contact"
-            className="bg-brand-green text-white px-5 py-2 rounded-full font-semibold text-sm hover:bg-brand-lime transition-colors"
+            className="bg-brand-green text-white px-6 py-2.5 rounded-full font-semibold text-sm hover:bg-brand-lime hover:text-brand-dark transition-all duration-300 shadow-md shadow-brand-green/25"
           >
             Get Quote
           </a>
@@ -58,7 +70,7 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className={`md:hidden p-2 ${scrolled ? 'text-brand-dark' : 'text-white'}`}
+          className={`lg:hidden p-2 -mr-2 ${scrolled ? 'text-brand-dark' : 'text-white'}`}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -72,13 +84,26 @@ export default function Navbar() {
         </button>
       </div>
 
-      {menuOpen && (
-        <div className="md:hidden bg-white border-t px-6 py-4 flex flex-col gap-4">
+      {/* Mobile fullscreen menu */}
+      <div className={`lg:hidden fixed inset-0 top-0 bg-white z-40 transition-all duration-500 ${
+        menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+      }`}>
+        <div className="flex flex-col items-center justify-center min-h-screen gap-8">
+          <button
+            className="absolute top-5 right-5 p-2 text-brand-dark"
+            onClick={() => setMenuOpen(false)}
+            aria-label="Close menu"
+          >
+            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-brand-dark font-medium hover:text-brand-lime"
+              className="text-brand-dark font-display font-bold text-2xl hover:text-brand-lime transition-colors"
               onClick={() => setMenuOpen(false)}
             >
               {l.label}
@@ -86,13 +111,16 @@ export default function Navbar() {
           ))}
           <a
             href="#contact"
-            className="bg-brand-green text-white px-5 py-2 rounded-full font-semibold text-center hover:bg-brand-lime transition-colors"
+            className="bg-brand-green text-white px-8 py-3.5 rounded-full font-bold text-lg hover:bg-brand-lime hover:text-brand-dark transition-colors mt-4"
             onClick={() => setMenuOpen(false)}
           >
-            Get Quote
+            Get a Free Quote
+          </a>
+          <a href="tel:+18173002215" className="text-gray-400 text-sm mt-2 hover:text-brand-green transition-colors">
+            📞 (817) 300-2215
           </a>
         </div>
-      )}
+      </div>
     </header>
   )
 }
