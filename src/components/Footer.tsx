@@ -17,10 +17,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mb-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-brand-green/20 flex items-center justify-center text-base">🌿</div>
+            <div className="flex items-center gap-3 mb-4">
+              <img
+                src="/logo.png"
+                alt="Bryson's Lawn & Landscape"
+                className="w-11 h-11 rounded-full object-cover border-2 border-white/20"
+              />
               <span className="font-display font-bold text-base">
-                Bryson's Lawn<span className="text-brand-lime"> &amp; Landscape</span>
+                Bryson's Lawn<span className="text-brand-lime"> & Landscape</span>
               </span>
             </div>
             <p className="text-white/50 text-sm leading-relaxed max-w-xs">

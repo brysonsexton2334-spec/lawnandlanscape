@@ -27,23 +27,27 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-lg shadow-black/5 py-3'
+          ? 'bg-white shadow-lg shadow-black/5 py-3'
           : 'bg-transparent py-5'
       }`}
     >
       <div className="max-w-6xl mx-auto px-5 sm:px-6 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2 group">
-          <div className={`w-9 h-9 rounded-lg flex items-center justify-center text-lg transition-colors ${
-            scrolled ? 'bg-brand-green/10' : 'bg-white/15'
-          }`}>
-            🌿
-          </div>
+        <a href="#" className="flex items-center gap-3 group">
+          <img
+            src="/logo.png"
+            alt="Bryson's Lawn & Landscape"
+            className={`rounded-full object-cover border-2 transition-all duration-300 ${
+              scrolled
+                ? 'w-10 h-10 sm:w-11 sm:h-11 border-brand-green/20'
+                : 'w-11 h-11 sm:w-12 sm:h-12 border-white/30'
+            }`}
+          />
           <span
-            className={`font-display font-bold text-[15px] sm:text-lg leading-none transition-colors ${
+            className={`font-display font-bold text-[15px] sm:text-lg leading-tight transition-colors ${
               scrolled ? 'text-brand-dark' : 'text-white'
             }`}
           >
-            Bryson's Lawn<span className="text-brand-lime"> &amp; Landscape</span>
+            Bryson's Lawn<span className="text-brand-lime"> & Landscape</span>
           </span>
         </a>
 
